@@ -50,8 +50,10 @@ steps{
 sh '''
 
     
-    docker build -t mywebapp .
-    docker run -d -p 5555:8080 mywebapp
+    docker build -t  profinchsolutions/modified-ubuntu
+    docker tag profinchsolutions/modified-ubuntu 10.20.3.10:5000/profinchsolutions/modified-ubuntu
+    docker push 10.20.3.10:5000/profinchsolutions/modified-ubuntu
+    docker run -d -p  10.20.3.10:5000
 '''
 }
 }
