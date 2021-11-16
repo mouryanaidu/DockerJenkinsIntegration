@@ -48,8 +48,21 @@ stage('Deploy'){
 steps{
 sh '''
     
-    docker tag mywebapp 10.20.3.7:5000/mywebapp
-    docker push 10.20.3.7:5000/my-app:2.0.0'
+   stage('Build Docker Image'){
+       sh 'echo "pr0f1nch@1234" | sudo -S docker ps'
+       
+       sh 'echo "pr0f1nch@1234" | sudo -S docker build -t 10.20.3.7:5000/mywebapp'
+       
+       
+    }
+  stage('Push Docker Image'){
+
+
+    
+     
+       sh ' echo "pr0f1nch@1234" | sudo -S docker push 10.20.3.7:5000/mywebapp'
+       
+   
 '''
 }
 }
