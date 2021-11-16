@@ -24,7 +24,6 @@ mvn test
 '''
 }  
   
-
 post{
         always{
              junit testResults:"target/surefire-reports/*.xml"
@@ -48,13 +47,9 @@ archiveArtifacts artifacts: '**/*.war'
 stage('Deploy'){
 steps{
 sh '''
-
     
-    docker build -t profinchsolutions/modified-ubuntu
-    docker tag profinchsolutions/modified-ubuntu 10.20.3.10:5000/profinchsolutions/modified-ubuntu
-
-    docker run -d -p 10.20.3.10:5000/profinchsolutions/modified-ubuntu
-
+    docker build -t 10.20.3.7:5000/mywebapp
+    docker push 10.20.3.7:5000/my-app:2.0.0'
 '''
 }
 }
