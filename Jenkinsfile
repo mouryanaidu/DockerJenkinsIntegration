@@ -48,7 +48,7 @@ stage('Deploy'){
 steps{
 sh '''
     
-    docker build -t 10.20.3.7:5000/mywebapp
+    docker tag mywebapp 10.20.3.7:5000/mywebapp
     docker push 10.20.3.7:5000/my-app:2.0.0'
 '''
 }
